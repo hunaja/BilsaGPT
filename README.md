@@ -8,16 +8,16 @@ OpenAI GPT:n voimalla BilsaGPT arvostelee oppilaan vastaukset vanhoihin YO-kysym
 
 ## Features and roadmap
 
-- [×] Cool interface with Next.js and TailwindCSS.
+[×] Cool interface with Next.js and TailwindCSS.
 
-- [x] Automatic grading of answers (based on the Finnish matriculation exam grading rubric)
+[x] Automatic grading of answers (based on the Finnish matriculation exam grading rubric)
 
-- [x] Personalized feedback
+[x] Personalized feedback
 
-- [] Automatic generation of questions based on the pupil's weaknesses
+[] Automatic generation of questions based on the pupil's weaknesses
 
-- [] SAAS features ("credits" and a payment system with Stripe, a landing page, etc.)
+[] SAAS features ("credits" and a payment system with Stripe, a landing page, etc.)
 
-- [] School group features (teacher can see the progress of the whole class, etc.)
+[] School group features (teacher can see the progress of the whole class, etc.)
 
-- [] Gamification (badges, progress bars, daily streaks, rewards, etc.)
+[] Gamification (badges, progress bars, daily streaks, rewards, etc.)
