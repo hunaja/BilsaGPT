@@ -1,0 +1,53 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["jsonProtocol"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_PRISMA_URL")
+}
+
+model Exam {
+  id          String     @id @default(cuid())
+  name        String     @unique
+  description String?
+  date        DateTime
+  grades      Int[]
+  questions   Question[]
+}
+
+model Question {
+  id        String @id @default(cuid())
+  maxPoints Int
+  number    Int
+  title     String
+  content   String
+  answer    String
+  examId    String
+  exam      Exam   @relation(fields: [examId], references: [id], onDelete: Cascade)
+  answers   UserAnswer[]
+
+  @@unique([examId, number], name: "exam_question_number")
+}
+
+model UserAnswer {
+  id         String   @id @default(cuid())
+  userId     String
+  questionId String
+
+  content    String
+  date       DateTime @default(now())
+  points     Int
+  overview   String   @db.VarChar(10000)
+
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String?   @unique
+  answers       UserAnswer[]
+}
